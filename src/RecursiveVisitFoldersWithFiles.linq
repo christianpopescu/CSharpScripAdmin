@@ -1,30 +1,21 @@
 <Query Kind="Program" />
 
+Action<string> VisitDirectory ;
+
 void Main()
 {
 	string folderToVisit = @"E:\CCP_library\Doc_IT_New";
-	RecursiveVisitWithFolders(folderToVisit);
+	VisitDirectory = (s) => {Console.WriteLine(s);};
+	RecursiveVisitWithFolders(folderToVisit, VisitDirectory);
 }
 
-
-void RecursiveVisit(string folder)
+void RecursiveVisitWithFolders(string folder, Action<string> functionVisitDirectory)
 {
-	Console.WriteLine(folder);
+	functionVisitDirectory(folder);
 	var folderCollection = Directory.GetDirectories(folder);
 	foreach (var fld in folderCollection)
 	{
-		RecursiveVisit(fld);
-	}
-			
-}
-
-void RecursiveVisitWithFolders(string folder)
-{
-	Console.WriteLine(folder);
-	var folderCollection = Directory.GetDirectories(folder);
-	foreach (var fld in folderCollection)
-	{
-		RecursiveVisitWithFolders(fld);
+		RecursiveVisitWithFolders(fld, functionVisitDirectory);
 	}
 	var filesCollection = Directory.GetFiles(folder);
 	foreach(var fl in filesCollection)
