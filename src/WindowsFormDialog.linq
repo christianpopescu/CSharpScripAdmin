@@ -38,24 +38,24 @@ void Main()
 	// Set the start position of the form to the center of the screen.
 	inputForm.StartPosition = FormStartPosition.CenterScreen;
 
-	var textBox1 = new System.Windows.Forms.TextBox();
+	var inputTextBox = new System.Windows.Forms.TextBox();
 	
-	textBox1.AcceptsReturn = true;
-	textBox1.AcceptsTab = true;
-	textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-	textBox1.Multiline = true;
-	textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+	inputTextBox.AcceptsReturn = true;
+	inputTextBox.AcceptsTab = true;
+	inputTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+	inputTextBox.Multiline = true;
+	inputTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
 	
-	textBox1.Location = new Point(buttonOk.Left, buttonOk.Height + buttonOk.Top + 30);
+	inputTextBox.Location = new Point(buttonOk.Left, buttonOk.Height + buttonOk.Top + 30);
 	
-	textBox1.Size = new System.Drawing.Size(50,50);
+	inputTextBox.Size = new System.Drawing.Size(50,50);
 
 	// Add buttonOk to the form.
 	inputForm.Controls.Add(buttonOk);
 	// Add buttonCancel to the form.
 	inputForm.Controls.Add(buttonCancel);
 	
-	inputForm.Controls.Add(textBox1);
+	inputForm.Controls.Add(inputTextBox);
 
 	// Display the form as a modal dialog box.
 	inputForm.ShowDialog();
@@ -65,7 +65,7 @@ void Main()
 	{
 		// Display a message box indicating that the OK button was clicked.
 		MessageBox.Show("The OK button on the form was clicked.");
-		MessageBox.Show(textBox1.Text);
+		MessageBox.Show(inputTextBox.Text);
 		// Optional: Call the Dispose method when you are finished with the dialog box.
 		inputForm.Dispose();
 	}
