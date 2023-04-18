@@ -6,14 +6,18 @@ Action<string> VisitFile;
 
 Predicate<string> FilterFile;
 
+Dictionary<string,Predicate<string>> FilterFileList = new Dictionary<string, System.Predicate<string>>();
+
 void Main()
 {
 	string folderToVisit = @"E:\CCP_library\Doc_it_new";
+	InitFilterDictionary();
 	List<string> listOfSelectedFiles = new List<string>();
 	//VisitDirectory = (s) => { Console.WriteLine(s); };
+	
 	VisitDirectory = (s) => { };
-	//FilterFile = (s) => { return s.Contains("Python");};
-	FilterFile = (s) => { return true;};
+	//FilterFile = 
+	FilterFile = FilterFileList["No Filter"];
 	VisitFile = (s) => {
 	if (s.Length > 235)
 	Console.WriteLine("File - ---- >" + s);
@@ -40,4 +44,11 @@ void RecursiveVisitWithFolders(string folder, Action<string> functionVisitDirect
 	
 
 }
+
+void InitFilterDictionary()
+{
+	FilterFileList["No Filter"] = (s) => { return true;};
+	FilterFileList["Contains Python"] = (s) => { return s.Contains("Python");};
+}
+
 // You can define other methods, fields, classes and namespaces here
