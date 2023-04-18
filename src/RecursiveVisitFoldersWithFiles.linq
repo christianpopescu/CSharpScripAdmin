@@ -8,14 +8,16 @@ Predicate<string> FilterFile;
 
 void Main()
 {
-	string folderToVisit = @"E:\CCP_library";
+	string folderToVisit = @"E:\CCP_library\Doc_it_new";
 	List<string> listOfSelectedFiles = new List<string>();
 	//VisitDirectory = (s) => { Console.WriteLine(s); };
 	VisitDirectory = (s) => { };
-	FilterFile = (s) => { return s.Contains("Python");};
+	//FilterFile = (s) => { return s.Contains("Python");};
+	FilterFile = (s) => { return true;};
 	VisitFile = (s) => {
+	if (s.Length > 235)
 	Console.WriteLine("File - ---- >" + s);
-	string fileName = Path.GetFileName(s);
+	//string fileName = Path.GetFileName(s);
 //	Console.WriteLine(fileName);
 	};
 	RecursiveVisitWithFolders(folderToVisit, VisitDirectory, VisitFile, FilterFile);
