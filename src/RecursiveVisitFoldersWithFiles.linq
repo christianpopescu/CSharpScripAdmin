@@ -10,6 +10,8 @@ Dictionary<string,Predicate<string>> FilterFileList = new Dictionary<string, Sys
 
 void Main()
 {
+	// List file that have a path too long to be copied to a tablet
+	
 	string folderToVisit = @"E:\CCP_library\Doc_it_new";
 	InitFilterDictionary();
 	List<string> listOfSelectedFiles = new List<string>();
