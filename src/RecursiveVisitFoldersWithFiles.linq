@@ -22,11 +22,13 @@ void Main()
 	FilterFile = FilterFileList["No Filter"];
 	VisitFile = (s) => {
 	if (s.Length > 235)
-	Console.WriteLine("File - ---- >" + s);
+	Console.WriteLine(String.Format("{0} -> {1}",s.Length,s ));
 	//string fileName = Path.GetFileName(s);
 //	Console.WriteLine(fileName);
 	};
 	RecursiveVisitWithFolders(folderToVisit, VisitDirectory, VisitFile, FilterFile);
+	
+	Console.WriteLine("--------------------"); 
 }
 
 void RecursiveVisitWithFolders(string folder, Action<string> functionVisitDirectory, Action<string> functionVisitFolder, Predicate<string> filterFolder)

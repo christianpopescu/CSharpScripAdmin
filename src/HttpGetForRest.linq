@@ -15,23 +15,27 @@ void Main()
 	client.DefaultRequestHeaders.Accept.Add(
 		new MediaTypeWithQualityHeaderValue("application/vnd.github.v3+json"));
 	client.DefaultRequestHeaders.Add("User-Agent", ".NET Foundation Repository Reporter");
-	/*client.DefaultRequestHeaders.Authorization =
-	new AuthenticationHeaderValue("Bearer", "<my token>");*/
+	client.DefaultRequestHeaders.Authorization =
+	new AuthenticationHeaderValue("Bearer", <MyToken>);
 	
 
 
 	//Task<string> json = client.GetStringAsync("https://api.github.com/users/christianpopescu/repos");
 	 
 	//-- get private, meeaning all repositories of the authenticated user
-	//Task<Stream> streamJson = client.GetStreamAsync("https://api.github.com/user/repos?per_page=100");
+	Task<Stream> streamJson = client.GetStreamAsync("https://api.github.com/user/repos?per_page=100");
 	
 	// Get al the repositories of the given user
-	Task<Stream> streamJson = client.GetStreamAsync("https://api.github.com/users/christianpopescu/repos?per_page=100");
+	//Task<Stream> streamJson = client.GetStreamAsync("https://api.github.com/users/christianpopescu/repos?per_page=100");
+	
+		
+	//Task<Stream> streamJson = client.GetStreamAsync("https://api.github.com/users/christianpopescu/repos?per_page=100");
 	Stream s = streamJson.Result;
 	ValueTask<List<Repository>> tl = JsonSerializer.DeserializeAsync<List<Repository>>(s);
 
 	foreach (var repo in tl.Result ?? Enumerable.Empty<Repository>())
-		Console.WriteLine(repo.name + "                               " + repo.full_name);
+		//Console.WriteLine(repo.name + "                               " + repo.full_name);
+		Console.WriteLine(repo.name );
 }
 
 
