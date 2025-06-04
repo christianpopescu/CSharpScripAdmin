@@ -1,4 +1,11 @@
 = C# Script Admin
 
 
-* HttpGetForRest.linq -> Http Request Get to get information from Rest services
+
+
+== HttpGetForRest.linq -> Http Request Get to get information from Rest services
+
+[source, csharp]
+----
+include::src/HttpGetForRest.linq[]
+----

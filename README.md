@@ -5,4 +5,4 @@ This site is based on LinqPad tool.
 
 [LinqPad site](https://www.linqpad.net/)
 
-[Main doc file](./doc/CSharpScriptAdmin.adoc)
+[Main doc file](CSharpScriptAdmin/CSharpScriptAdmin.adoc)
