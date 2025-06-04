@@ -12,7 +12,7 @@ void Main()
 {
 	// List file that have a path too long to be copied to a tablet
 	
-	string folderToVisit = @"E:\CCP_library\Doc_it_new";
+	string folderToVisit = @"E:\CCP_library_new";
 	InitFilterDictionary();
 	List<string> listOfSelectedFiles = new List<string>();
 	//VisitDirectory = (s) => { Console.WriteLine(s); };
