@@ -9,3 +9,7 @@
 ----
 include::src/HttpGetForRest.linq[]
 ----
+
+== StartsCmdWindowInGivenFolder
+
+Starts a cmd window in a given folder

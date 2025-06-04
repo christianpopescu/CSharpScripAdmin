@@ -1,8 +1,11 @@
 <Query Kind="Program" />
 
-void Main()
+void Main(string[] args)
 {
-	string folderToVisit = @"E:\CCP_library\Doc_IT_New";
+#if !CMD
+	args = new[] { @"D:\Temp\ToDelete\TerminalGui" };
+#endif
+	string folderToVisit = args[0];
 	RecursiveVisit(folderToVisit);
 }
 
