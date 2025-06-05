@@ -13,3 +13,10 @@ include::src/HttpGetForRest.linq[]
 == StartsCmdWindowInGivenFolder
 
 Starts a cmd window in a given folder
+
+== BuildAsciiDoc
+
+Compiles assciidoc based on asciidocj-bin.
+
+This means that there are a dependency to asciidocj-bin that should be installed on the workstation.
+
